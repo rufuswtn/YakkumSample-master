@@ -1,0 +1,76 @@
+﻿@model DokumenWebApps.Models.Klasifikasi
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/Home/Index">Home Page</a>
+    </li>
+    <li class="breadcrumb-item active">Detail Klasifikasi</li>
+</ol>
+<div class="row">
+    <div class="col-12">
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.KodeKlasifikasi)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.KodeKlasifikasi)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Induk)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Induk)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Level)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Level)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.NamaKlasifikasi)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NamaKlasifikasi)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Uraian)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Uraian)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RetensiAktif)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RetensiAktif)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RetensiInaktif)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RetensiInaktif)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.StatusAktif)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.StatusAktif)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<DokumenWebApps.Models.Klasifikasi>
+
+@{
+    ViewData["Title"] = "Daftar Klasifikasi";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/Home/Index">Home Page</a>
+    </li>
+    <li class="breadcrumb-item active">Daftar Klasifikasi</li>
+</ol>
+<div class="row">
+    <div class="col-12">
+        <p>
+            @Html.Raw(ViewBag.Keterangan)
+        </p>
+        <p>
+            <a asp-action="Create">Tambah Klasifikasi</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.KodeKlasifikasi)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Induk)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Level)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NamaKlasifikasi)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.KodeKlasifikasi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Induk)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Level)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NamaKlasifikasi)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new {  id=item.KodeKlasifikasi  }) |
+                            @Html.ActionLink("Details", "Details", new {  id=item.KodeKlasifikasi  }) |
+                            @Html.ActionLink("Delete", "Delete", new {  id=item.KodeKlasifikasi  })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

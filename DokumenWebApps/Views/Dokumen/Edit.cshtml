@@ -1,0 +1,69 @@
+﻿@model DokumenWebApps.Models.Dokumen
+
+@{
+    ViewData["Title"] = "Edit Dokumen";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/Home/Index">Home Page</a>
+    </li>
+    <li class="breadcrumb-item active">Edit Dokumen</li>
+</ol>
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DokumenID" class="control-label"></label>
+                <input asp-for="DokumenID" readonly="readonly" class="form-control" />
+                <span asp-validation-for="DokumenID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Klasifikasi</label>
+                <select asp-for="KodeKlasifikasi" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.ListKlasifikasi,
+                            "KodeKlasifikasi","NamaKlasifikasi"))">
+                    <option>silahkan pilih</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NamaDokumen" class="control-label"></label>
+                <input asp-for="NamaDokumen"  class="form-control" />
+                <span asp-validation-for="NamaDokumen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalDibuat" class="control-label"></label>
+                <input asp-for="TanggalDibuat" type="date" class="form-control" />
+                <span asp-validation-for="TanggalDibuat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TanggalDiterima" class="control-label"></label>
+                <input asp-for="TanggalDiterima" type="date" class="form-control" />
+                <span asp-validation-for="TanggalDiterima" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sumber" class="control-label"></label>
+                <input asp-for="Sumber" class="form-control" />
+                <span asp-validation-for="Sumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Keterangan" class="control-label"></label>
+                <input asp-for="Keterangan" class="form-control" />
+                <span asp-validation-for="Keterangan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,68 @@
+﻿@model DokumenWebApps.Models.Klasifikasi
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/Home/Index">Home Page</a>
+    </li>
+    <li class="breadcrumb-item active">Tambah Klasifikasi</li>
+</ol>
+<div class="row">
+    <div class="col-md-12">
+        <p>@Html.Raw(ViewBag.Error)</p>
+    </div>
+    <div class="col-md-4">
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="KodeKlasifikasi" class="control-label"></label>
+                <input asp-for="KodeKlasifikasi" class="form-control" />
+                <span asp-validation-for="KodeKlasifikasi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Induk" class="control-label"></label>
+                <input asp-for="Induk" class="form-control" />
+                <span asp-validation-for="Induk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Level" class="control-label"></label>
+                <input asp-for="Level" class="form-control" />
+                <span asp-validation-for="Level" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NamaKlasifikasi" class="control-label"></label>
+                <input asp-for="NamaKlasifikasi" class="form-control" />
+                <span asp-validation-for="NamaKlasifikasi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Uraian" class="control-label"></label>
+                <textarea name="Uraian" rows="5" cols="50"></textarea>
+                <span asp-validation-for="Uraian" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RetensiAktif" class="control-label"></label>
+                <input asp-for="RetensiAktif" class="form-control" />
+                <span asp-validation-for="RetensiAktif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RetensiInaktif" class="control-label"></label>
+                <input asp-for="RetensiInaktif" class="form-control" />
+                <span asp-validation-for="RetensiInaktif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

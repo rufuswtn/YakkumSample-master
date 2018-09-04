@@ -1,0 +1,113 @@
+﻿@model IEnumerable<DokumenWebApps.Models.DokumenKlasifikasiView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section MyCss{
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/Home/Index">Home Page</a>
+    </li>
+    <li class="breadcrumb-item active">List Dokumen</li>
+</ol>
+<div class="row">
+    <div class="col-12">
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+
+        <form class="form-inline" method="post" asp-action="Search">
+            <div class="form-group">
+                <label for="search">Search :</label>
+                <input type="text" class="form-control" name="search">
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="pilih" value="NamaKlasifikasi">Klasifikasi</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="pilih" value="NamaDokumen">Nama Dokumen</label>
+            </div>
+            <div class="form-group">
+                <label for="tglbuatawal">Awal :</label>
+                <input type="date" class="form-control" name="tglbuatawal">
+            </div>
+            <div class="form-group">
+                <label for="tglbuatakhir">Akhir :</label>
+                <input type="date" class="form-control" name="tglbuatakhir">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form><br />
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DokumenID)
+                    </th>
+                    <th>
+                        Nama Klasifikasi
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NamaDokumen)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TanggalDibuat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TanggalDiterima)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Keterangan)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DokumenID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NamaKlasifikasi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NamaDokumen)
+                        </td>
+                        <td>
+                            @item.TanggalDibuat.ToShortDateString()
+                        </td>
+                        <td>
+                            @item.TanggalDiterima.ToShortDateString()
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keterangan)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new {  id=item.DokumenID  }) |
+                            @Html.ActionLink("Delete", "Delete", new {  id=item.DokumenID  })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}
